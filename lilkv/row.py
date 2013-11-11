@@ -23,4 +23,7 @@ class Row(object):
         try:
             return self.columns[key].value
         except Exception:
-            raise Exception("Key not found.")
+            raise Exception('Key not found.')
+
+    def __repr__(self):
+        return 'Row-key: %s' % self.key

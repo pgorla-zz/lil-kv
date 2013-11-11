@@ -27,3 +27,6 @@ class Column(object):
         self.value = value
         self.TTL = TTL
         self.tombstone = tombstone
+
+    def __repr__(self):
+        return '%s => %s' % (self.key, self.value)

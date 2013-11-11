@@ -19,3 +19,7 @@ class Keyspace(object):
 
     def add_columnfamily(self, cf):
         self.columnfamilies[cf.name] = cf
+
+    def __repr__(self):
+        return '''Keyspace: %s % self.name
+            '''
