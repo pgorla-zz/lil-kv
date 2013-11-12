@@ -16,8 +16,9 @@ class Row(object):
     def __init__(self):
         self.columns = {}
 
-    def add(self, Column):
-        self.columns[Column.key] = Column
+    def add(self, column):
+        self.key = column.key
+        self.columns[column.key] = column
 
     def get(self, key):
         try:
