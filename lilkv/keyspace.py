@@ -10,16 +10,17 @@ import sys
 
 from columnfamily import ColumnFamily
 
-KEYSPACES = {}
 
 class Keyspace(object):
     """Keyspaces contain a list of column families, along with key
     configuration details.
     """
 
+    KEYSPACES = {}
+
     def __init__(self, name):
         self.name = name
-        KEYSPACES[name] = self
+        Keyspace.KEYSPACES[name] = self
         self.columnfamilies = {}
 
     def create_columnfamily(self, cf_name):
