@@ -3,7 +3,7 @@
 all: clean test
 
 test:
-	nosetests
+	nosetests lilkv/testsuite
 
 clean:
 	find . -name *.pyc -exec rm -fr {} +
