@@ -16,19 +16,25 @@ class ColumnFamily(object):
 
     def __init__(self, name, data_dir='data'):
         self.name = name
-        pass
+        self.ROWS = set()
 
-    def insert(self, Column):
-        pass
+    def insert(self, column):
+        return self._insert(column)
+
+    def delete(self, column):
+        column.tombstone = True
+        return self._insert(column)
 
     def get(self, key):
         # NOTE: Check for tombstones / TTL here
         pass
 
-    def delete(self, key):
-        # NOTE: Really an insert with a tombstone
-        insert(key, tombstone=True)
-        pass
+    def _insert(self, column):
+        try:
+            self.ROWS.add(column)
+            return True
+        except:
+            return False
 
     def __repr__(self):
         return '<%r>' % self.name
