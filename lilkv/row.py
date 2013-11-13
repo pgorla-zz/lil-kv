@@ -13,11 +13,11 @@ class Row(object):
     row-key. Each row can contain up to 1000 columns.
     """
 
-    def __init__(self):
-        self.columns = {}
+    def __init__(self, row_key):
+        self.row_key = row_key
+        self.columns = set()
 
     def add(self, column):
-        self.key = column.key
         self.columns[column.key] = column
 
     def get(self, key):
