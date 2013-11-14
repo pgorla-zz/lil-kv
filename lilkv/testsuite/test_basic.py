@@ -25,3 +25,12 @@ class BasicTests(LilKVTestCase):
         ks = Keyspace("Test Keyspace")
         ks.create_columnfamily("daily_visitors")
         self.assert_in("daily_visitors", ks.columnfamilies)
+
+    def test_adding_data(self):
+        pass
+
+    def test_reading_data(self):
+        pass
+
+    def test_deleting_data(self):
+        pass
