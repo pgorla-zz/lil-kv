@@ -16,7 +16,9 @@ class ColumnFamily(object):
 
     def __init__(self, name, data_dir='data'):
         self.name = name
-        self.ROWS = set()
+        # A row consists of:
+        # {'rowkey': [col1, col2, col3]}
+        self.ROWS = dict()
 
     def insert(self, column):
         return self._insert(column)
@@ -31,8 +33,10 @@ class ColumnFamily(object):
 
     def _insert(self, column):
         try:
-            self.ROWS.add(column)
+            self.ROWS[column.row_key].append(column)
             return True
+        except KeyError: # Key doesn't exist
+            self.ROWS[column.row_key] = [column]
         except:
             return False
 
