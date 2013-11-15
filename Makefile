@@ -9,3 +9,6 @@ clean:
 	find . -name *.pyc -exec rm -fr {} +
 
 insert-data:
+
+count:
+	cloc lilkv/*.py --exclude-dir=*/testsuite/*
