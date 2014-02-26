@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from merkletree import MerkleTree
+
 """
     lilkv.columnfamily
 
@@ -14,31 +16,21 @@ class ColumnFamily(object):
     daily_purchases_cf = ColumnFamily("daily_purchases")
     """
 
-    def __init__(self, name, data_dir='data'):
+    def __init__(self, name):
         self.name = name
-        # A row consists of:
-        # {'rowkey': [col1, col2, col3]}
-        self.ROWS = dict()
 
     def insert(self, column):
-        return self._insert(column)
+        pass
 
     def delete(self, column):
-        column.tombstone = True
-        return self._insert(column)
+        pass
 
     def get(self, key):
         # NOTE: Check for tombstones / TTL here
         pass
 
-    def _insert(self, column):
-        try:
-            self.ROWS[column.row_key].append(column)
-            return True
-        except KeyError: # Key doesn't exist
-            self.ROWS[column.row_key] = [column]
-        except:
-            return False
-
     def __repr__(self):
         return '<%r>' % self.name
+
+    def cmp(self, cf_b):
+        pass

@@ -1,8 +1,8 @@
 
 Lil' kv
 ======
-Simple key-value store based on the BigTable concept, distilled into
-less than 500 lines of Python.
+Simple key-value store based on the Cassandra concept of a Merkle tree,
+distilled into 500 lines of Python.
 
 
 Installation
